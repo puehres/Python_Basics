@@ -6,9 +6,13 @@ with open(r"C:\Users\fpuhringer\github\Python_Course\Application 1\data.json") a
 
 def get_def(word):
     word = word.lower()
-    get_close_matches(word,dict.keys())[0]
+    get_close_matches(word,dict.keys(),1)[0]
     if word in dict:
         return(dict.get(word))
+    elif word.capitalize() in dict:
+        return(dict.get(word.capitalize()))
+    elif word.upper() in dict:
+        return(dict.get(word.upper()))
     elif len(get_close_matches(word,dict.keys())) >  0:
         choice = input("Did you mean %s instead? Enter Y if yes, or N if no:\n" % get_close_matches(word,dict.keys())[0])
         if choice == "Y":
